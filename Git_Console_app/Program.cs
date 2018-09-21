@@ -26,10 +26,17 @@ namespace Git_Console_app
 
         static void Main(string[] args)
         {
-            int[] szam_ker = new int[10];
-            for (int i = 0; i < 10; i++)
+            string keres="";
+            int darabszam;
+            do
             {
-                string keres;
+                Console.Write("Kérem adja meg, hogy hány elemű legyen a tömb: ");
+                keres = Console.ReadLine();
+            } while (int.TryParse(keres,out darabszam)==false);
+            int[] szam_ker = new int[darabszam];
+            for (int i = 0; i < szam_ker.Length; i++)
+            {
+                 
                 do
                 {
                     Console.Write("Kérem a {0}. számot: ",i+1);
