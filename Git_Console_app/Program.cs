@@ -23,6 +23,20 @@ namespace Git_Console_app
             }
             return max;
         }
+        public static int Legkissebb(int[] tomb, out int hely)
+        {
+            int min = tomb[0];
+            hely = 0;
+            for (int i = 0; i < tomb.Length; i++)
+            {
+                if (tomb[i] < min)
+                {
+                    min = tomb[i];
+                    hely = i;
+                }
+            }
+            return min;
+        }
 
         static void Main(string[] args)
         {
@@ -50,7 +64,10 @@ namespace Git_Console_app
             }
             int helye;
             int legnagyobb= Legnagyobb(szam_ker, out helye);
+
             Console.WriteLine("A legnagyobb szám a bekért értékek között a: {0} és a helye: {1}",legnagyobb,helye+1);
+            int legkissebb= Legkissebb(szam_ker, out helye);
+            Console.WriteLine("A legkissebb szám a bekért értékek között a: {0} és a helye: {1}", legkissebb, helye + 1);
             Console.ReadKey();
 
         }
