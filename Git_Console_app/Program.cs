@@ -46,6 +46,13 @@ namespace Git_Console_app
             {
                 Console.Write("Kérem adja meg, hogy hány elemű legyen a tömb: ");
                 keres = Console.ReadLine();
+                if (int.TryParse(keres, out darabszam) == false)
+                {
+                    Console.WriteLine("Nem szabad betűt használni!!!!!!!!!!!!444!!!!!!!!!!!");
+                    Console.ReadKey();
+                    return;
+
+                }
             } while (int.TryParse(keres,out darabszam)==false);
             int[] szam_ker = new int[darabszam];
             for (int i = 0; i < szam_ker.Length; i++)
@@ -55,9 +62,16 @@ namespace Git_Console_app
                 {
                     Console.Write("Kérem a {0}. számot: ",i+1);
                     keres = Console.ReadLine();
+                   if( int.TryParse(keres, out szam_ker[i]) == false)
+                    {
+                        Console.WriteLine("Nem szabad betűt használni!!!!!!!!!!!!444!!!!!!!!!!!");
+                        Console.ReadKey();
+                        return;
+
+                    }
                 } while (int.TryParse(keres,out szam_ker[i])==false);
             }
-
+            
             for (int i = 0; i < szam_ker.Length; i++)
             {
                 Console.WriteLine(szam_ker[i] + " ");
